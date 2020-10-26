@@ -13,12 +13,12 @@ func TestWalk(t *testing.T) {
 		ExpectedCalls []string
 	}{
 		{
-			"Struct with non string field",
-			struct {
-				Name string
-				Age  int
-			}{"Chris", 33},
-			[]string{"Chris"},
+			"Pointers to things",
+			&Person{
+				"Chris",
+				Profile{33, "London"},
+			},
+			[]string{"Chris", "London"},
 		},
 	}
 	for _, test := range cases {
